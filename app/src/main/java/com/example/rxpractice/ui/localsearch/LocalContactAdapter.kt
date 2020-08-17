@@ -19,7 +19,7 @@ import kotlin.collections.ArrayList
 
 class LocalContactAdapter(
     private val context: Context,
-    private val contactList: List<Contact>,
+    private var contactList: List<Contact>,
     private val listener: ContactsAdapterListener
 ) :
     RecyclerView.Adapter<LocalContactAdapter.MyViewHolder>(), Filterable {
@@ -65,6 +65,8 @@ class LocalContactAdapter(
         return contactListFiltered.size
     }
 
+
+
     override fun getFilter(): Filter {
         return object : Filter() {
             override fun performFiltering(charSequence: CharSequence): FilterResults {
@@ -90,6 +92,11 @@ class LocalContactAdapter(
                 notifyDataSetChanged()
             }
         }
+    }
+
+    fun setData(contactList: List<Contact>){
+        this.contactListFiltered = contactList
+        notifyDataSetChanged()
     }
 
     interface ContactsAdapterListener {

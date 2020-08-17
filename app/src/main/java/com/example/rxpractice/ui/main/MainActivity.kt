@@ -29,7 +29,6 @@ class MainActivity : AppCompatActivity() {
         binding.btnRemoteSearch.setOnClickListener { startActivity(Intent(this, RemoteSearchActivity::class.java)) }
     }
 
-
     private fun whiteNotificationBar(view: View) {
         var flags: Int = view.systemUiVisibility
         flags = flags or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
